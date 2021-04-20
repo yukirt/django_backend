@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -75,14 +76,20 @@ WSGI_APPLICATION = 'django_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+DATABASE_ENV_HOST = os.environ.get("POSTGRES_HOST") or "0.0.0.0"
+DATABASE_ENV_PORT = os.environ.get("POSTGRES_PORT") or "5432"
+DATABASE_ENV_DB_NAME = os.environ.get("POSTGRES_DATABASE") or "postgres"
+DATABASE_ENV_USER_NAME = os.environ.get("POSTGRES_USERNAME") or "postgres"
+DATABASE_ENV_USER_PASSWD = os.environ.get("POSTGRES_PASSWORD") or "postgres"
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'db',
-        'PORT': 5432,
+        'NAME': DATABASE_ENV_DB_NAME,
+        'USER': DATABASE_ENV_USER_NAME,
+        'PASSWORD': DATABASE_ENV_USER_PASSWD,
+        'HOST': DATABASE_ENV_HOST,
+        'PORT': DATABASE_ENV_PORT,
     }
 }
 
