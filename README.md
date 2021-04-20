@@ -2,15 +2,15 @@
 ---
 ## Getting Started
 ---
-### Requirements
-- python 3.9
-
-### Install Dependencies
-```shell
-pip install -r requirements.txt
+### Use Docker Compose To Run Server
+``` shell
+make run
 ```
-
-### Run Server
-```shell
-python manage.py runserver
+### Stop Server
+``` shell
+make down
+```
+### Restart Server
+``` shell
+make restart
 ```
