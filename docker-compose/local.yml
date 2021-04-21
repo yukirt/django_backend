@@ -12,9 +12,10 @@ services:
     ports:
       - "5432:5432"
   django:
-    build: ../django_backend
+    build:
+      context: ../django_backend
+      dockerfile: Dockerfile
     image: django:local
-    command: python manage.py runserver 0.0.0.0:8080
     volumes:
       - ../django_backend/:/django-backend/
     ports:
