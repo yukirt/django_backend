@@ -126,6 +126,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Django 4.0+ requires this setting to continue using pytz
+USE_DEPRECATED_PYTZ = True
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
